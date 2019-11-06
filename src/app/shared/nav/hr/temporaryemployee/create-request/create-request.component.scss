@@ -1,0 +1,64 @@
+mat-card {
+    max-width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+}
+
+mat-form-field {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    ;
+    font-size: 13px;
+    color: #333333;
+    width: 100%;
+}
+
+mat-form-field .phoneextension {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    ;
+    font-size: 13px;
+    color: #333333;
+    width: 30%;
+}
+
+.error_font_format {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    ;
+    font-size: 13px;
+    color: #fc4445;
+}
+
+a {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    ;
+    font-size: 13px;
+    color: #333333;
+}
+
+.font-format {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    color: #333333;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.button-format {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    width: 50%;
+    height: 42px;
+    border-radius: 3px;
+    background: #d33f8d;
+}
+
+.validate-button-format {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 15px;
+    color: #fff;
+    border-radius: 3px;
+    background: #d33f8d;
+}

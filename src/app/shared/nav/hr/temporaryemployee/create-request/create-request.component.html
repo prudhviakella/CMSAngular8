@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayoutAlign="center " class="login-main">
+<div fxLayout="row" fxLayoutAlign="center center" class="login-main">
     <mat-card>
         <form [formGroup]="tmpemployeecreate" (ngSubmit)="createemployee()">
             <mat-card-content fxLayout="column">
@@ -15,16 +15,35 @@
                     <mat-error class="error_font_format" *ngIf="tmpemployeecreate.controls['email'].hasError('email') && tmpemployeecreate.controls['email'].touched"> invalid </mat-error>
                     <mat-error class="error_font_format" *ngIf="tmpemployeecreate.controls['email'].hasError('required') && tmpemployeecreate.controls['email'].touched">required </mat-error>
                 </mat-form-field>
+                <mat-grid-list cols="4" rowHeight="60px">
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <mat-form-field>
+                            <input required matInput placeholder="Extension" [formControl]="tmpemployeecreate.controls['phoneext']">
+                            <mat-error class="error_font_format" *ngIf="tmpemployeecreate.controls['phoneext'].hasError('pattern') && tmpemployeecreate.controls['phoneext'].touched"> + is expected </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile [colspan]="3" [rowspan]="1">
+                        <mat-form-field>
+                            <input required matInput placeholder="Phone Number" [formControl]="tmpemployeecreate.controls['phonenumber']">
+                            <mat-error class="error_font_format" *ngIf="tmpemployeecreate.controls['phonenumber'].hasError('pattern') && tmpemployeecreate.controls['phonenumber'].touched"> invalid </mat-error>
+                            <mat-error class="error_font_format" *ngIf="tmpemployeecreate.controls['phonenumber'].hasError('required') && tmpemployeecreate.controls['phonenumber'].touched"> required </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
                 <mat-form-field>
-                    <input required matInput placeholder="Extension" [formControl]="tmpemployeecreate.controls['phoneext']">
-                    <mat-error class="error_font_format" *ngIf="tmpemployeecreate.controls['phoneext'].hasError('pattern') && tmpemployeecreate.controls['phoneext'].touched"> + is expected </mat-error>
+                    <input required matInput placeholder="Current Company" [formControl]="tmpemployeecreate.controls['currentcompany']">
+                    <mat-error class="error_font_format" *ngIf="tmpemployeecreate.controls['currentcompany'].hasError('required') && tmpemployeecreate.controls['currentcompany'].touched">required </mat-error>
                 </mat-form-field>
                 <mat-form-field>
-                    <input required matInput placeholder="Phone Number" [formControl]="tmpemployeecreate.controls['phonenumber']">
-                    <mat-error class="error_font_format" *ngIf="tmpemployeecreate.controls['phonenumber'].hasError('pattern') && tmpemployeecreate.controls['phonenumber'].touched"> invalid </mat-error>
-                    <mat-error class="error_font_format" *ngIf="tmpemployeecreate.controls['phonenumber'].hasError('required') && tmpemployeecreate.controls['phonenumber'].touched"> required </mat-error>
+                    <input required matInput placeholder="Current Designation" [formControl]="tmpemployeecreate.controls['currentdesgination']">
+                    <mat-error class="error_font_format" *ngIf="tmpemployeecreate.controls['currentdesgination'].hasError('required') && tmpemployeecreate.controls['currentdesgination'].touched">required </mat-error>
                 </mat-form-field>
-
+                <mat-form-field>
+                    <input required matInput placeholder="Adhar Number" [formControl]="tmpemployeecreate.controls['adhar']">
+                    <button class="validate-button-format" matSuffix mat-raised-button [disabled]="(tmpemployeecreate.controls['adhar'].hasError('pattern') && tmpemployeecreate.controls['adhar'].touched) || (tmpemployeecreate.controls['adhar'].hasError('required') && tmpemployeecreate.controls['adhar'].touched)">Validate</button>
+                    <mat-error class="error_font_format" *ngIf="tmpemployeecreate.controls['adhar'].hasError('required') && tmpemployeecreate.controls['adhar'].touched">required </mat-error>
+                    <mat-error class="error_font_format" *ngIf="tmpemployeecreate.controls['adhar'].hasError('pattern') && tmpemployeecreate.controls['adhar'].touched">Digits only accepted and cann't excide 12 digits </mat-error>
+                </mat-form-field>
             </mat-card-content>
             <mat-card-actions align="center">
                 <button class="button-format" mat-raised-button color="primary" [disabled]="tmpemployeecreate.invalid">Create</button>
