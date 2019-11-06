@@ -1,0 +1,27 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="login-main">
+    <mat-card>
+        <mat-card-header style="justify-content: center">
+            <mat-card-title class="font-format">Login</mat-card-title>
+        </mat-card-header>
+        <form [formGroup]="signinForm" (ngSubmit)="signin()">
+            <mat-card-content fxLayout="column">
+                <mat-form-field>
+                    <input required matInput placeholder="Email" [formControl]="signinForm.controls['username']">
+                    <mat-error class="error_font_format" *ngIf="signinForm.controls['username'].hasError('email') && signinForm.controls['username'].touched"> Email invalid </mat-error>
+                    <mat-error class="error_font_format" *ngIf="signinForm.controls['username'].hasError('required') && signinForm.controls['username'].touched"> Username is required </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input required type="password" matInput [formControl]="signinForm.controls['password']" placeholder="Password">
+                    <mat-error class="error_font_format" *ngIf="signinForm.controls['password'].hasError('required') && signinForm.controls['password'].touched"> Password is required </mat-error>
+                </mat-form-field>
+
+            </mat-card-content>
+            <mat-card-actions align="center">
+                <button class="button-format" mat-raised-button color="primary" [disabled]="signinForm.invalid">Login</button>
+                <br>
+                <a [routerLink]="'/auth/forgot-password'">Forgot password</a>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</div>
