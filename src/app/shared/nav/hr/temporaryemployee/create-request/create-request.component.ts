@@ -8,6 +8,8 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
 })
 export class CreateRequestComponent implements OnInit {
   tmpemployeecreate: FormGroup;
+  start_spinner = false;
+  adharvalidate = false;
   constructor() { }
 
   ngOnInit() {
@@ -15,7 +17,7 @@ export class CreateRequestComponent implements OnInit {
       role: new FormControl('', Validators.required),
       name: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
-      phoneext: new FormControl('', [Validators.required, Validators.pattern(/^\+[0-9]+$/)]),
+      phoneext: new FormControl('+', [Validators.required, Validators.pattern(/^\+[0-9]+$/)]),
       phonenumber: new FormControl('', [Validators.required, Validators.pattern(/^[6-9]\d{9}$/)]),
       currentdesgination: new FormControl('', Validators.required),
       currentcompany: new FormControl('', Validators.required),
@@ -27,4 +29,17 @@ export class CreateRequestComponent implements OnInit {
     return this.tmpemployeecreate.controls;
   }
 
+  validateAdhar() {
+    if (this.tmpemployeecreate.controls.adhar.value == '') {
+      return;
+    }
+    this.start_spinner = true;
+    this.tmpemployeecreate.disable();
+    // call the back end API to validate Adhar
+    setTimeout(() => {
+      this.start_spinner = false;
+      this.adharvalidate = true;
+      this.tmpemployeecreate.enable();
+    }, 200);
+  }
 }
